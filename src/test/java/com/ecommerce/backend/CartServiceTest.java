@@ -74,7 +74,7 @@ class CartServiceTest {
         cartItemRequest.setQuantity(2);
     }
 
-    // ── Add Item Tests ────────────────────────────────────────────────────
+    // ── Add Item Tests ───────────
 
     @Test
     void addItem_Success() {

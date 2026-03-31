@@ -17,7 +17,7 @@ public class CartController {
 
     private final CartService cartService;
 
-    // ── GET /api/cart ─────────────────────────────────────────────────────
+    // GET /api/cart
     @GetMapping
     public ResponseEntity<CartResponse> getCart(
             @AuthenticationPrincipal UserDetails userDetails) {
@@ -25,7 +25,7 @@ public class CartController {
                 cartService.getCart(userDetails.getUsername()));
     }
 
-    // ── POST /api/cart/items ──────────────────────────────────────────────
+    // POST /api/cart/items
     @PostMapping("/items")
     public ResponseEntity<CartResponse> addItem(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -34,7 +34,7 @@ public class CartController {
                 cartService.addItem(userDetails.getUsername(), request));
     }
 
-    // ── PUT /api/cart/items/{productId} ───────────────────────────────────
+    //PUT /api/cart/items/{productId} 
     @PutMapping("/items/{productId}")
     public ResponseEntity<CartResponse> updateItem(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -45,7 +45,7 @@ public class CartController {
                         userDetails.getUsername(), productId, request));
     }
 
-    // ── DELETE /api/cart/items/{productId} ────────────────────────────────
+    //DELETE /api/cart/items/{productId} 
     @DeleteMapping("/items/{productId}")
     public ResponseEntity<CartResponse> removeItem(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -54,7 +54,7 @@ public class CartController {
                 cartService.removeItem(userDetails.getUsername(), productId));
     }
 
-    // ── DELETE /api/cart ──────────────────────────────────────────────────
+    // DELETE /api/cart
     @DeleteMapping
     public ResponseEntity<Void> clearCart(
             @AuthenticationPrincipal UserDetails userDetails) {

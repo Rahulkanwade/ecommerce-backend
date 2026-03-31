@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    // Search products by name (case-insensitive)
+    
     List<Product> findByNameContainingIgnoreCase(String name);
 
-    // Find products with stock greater than 0
+    
     List<Product> findByStockGreaterThan(Integer stock);
 }

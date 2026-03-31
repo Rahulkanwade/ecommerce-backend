@@ -37,14 +37,14 @@ public class CartService {
                 });
     }
 
-    // ── Get Cart ──────────────────────────────────────────────────────────
+    // ── Get Cart ─────────────────
     @Transactional(readOnly = true)
     public CartResponse getCart(String email) {
         Cart cart = getOrCreateCart(email);
         return mapToResponse(cart);
     }
 
-    // ── Add Item to Cart ──────────────────────────────────────────────────
+    // ── Add Item to Cart ─────────
     @Transactional
     public CartResponse addItem(String email, CartItemRequest request) {
 
@@ -91,7 +91,7 @@ public class CartService {
         return mapToResponse(updatedCart);
     }
 
-    // ── Update Item Quantity ──────────────────────────────────────────────
+    // ── Update Item Quantity ─────
     @Transactional
     public CartResponse updateItem(String email,
                                    Long productId,
@@ -119,7 +119,7 @@ public class CartService {
         return mapToResponse(updatedCart);
     }
 
-    // ── Remove Item from Cart ─────────────────────────────────────────────
+    // ── Remove Item from Cart ────
     @Transactional
     public CartResponse removeItem(String email, Long productId) {
         Cart cart = getOrCreateCart(email);
@@ -131,7 +131,7 @@ public class CartService {
         return mapToResponse(updatedCart);
     }
 
-    // ── Clear Cart ────────────────────────────────────────────────────────
+    // ── Clear Cart ───────────────
     @Transactional
     public void clearCart(String email) {
         Cart cart = getOrCreateCart(email);
@@ -139,7 +139,7 @@ public class CartService {
         cartRepository.save(cart);
     }
 
-    // ── Map Entity to Response ────────────────────────────────────────────
+    // ── Map Entity to Response ───
     private CartResponse mapToResponse(Cart cart) {
         List<CartItemResponse> itemResponses = cart.getItems()
                 .stream()

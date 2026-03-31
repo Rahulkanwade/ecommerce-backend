@@ -32,14 +32,14 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http)
 
         .authorizeHttpRequests(auth -> auth
 
-            // ✅ Public endpoints
+            // Public endpoints
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/error").permitAll()
             .requestMatchers("/api/payments/success").permitAll()
             .requestMatchers("/api/payments/cancel").permitAll()
             .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
 
-            // ✅ Admin only
+            // Admin only
             .requestMatchers(HttpMethod.POST, "/api/products/**")
                 .hasAuthority("ROLE_ADMIN")
             .requestMatchers(HttpMethod.PUT, "/api/products/**")
@@ -49,7 +49,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http)
             .requestMatchers("/api/orders/admin/**")
                 .hasAuthority("ROLE_ADMIN")
 
-            // ✅ Any authenticated user
+            //  Any authenticated user
             .requestMatchers("/api/cart/**").authenticated()
             .requestMatchers("/api/orders/**").authenticated()
             .requestMatchers("/api/payments/**").authenticated()

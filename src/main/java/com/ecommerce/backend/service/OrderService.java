@@ -26,7 +26,7 @@ public class OrderService {
         private final UserRepository userRepository;
         private final ProductRepository productRepository;
 
-        // ── Create Order from Cart ────────────────────────────────────────────
+        // ── Create Order from Cart ───
         @Transactional
         public OrderResponse createOrder(String email, OrderRequest request) {
 
@@ -110,7 +110,7 @@ public class OrderService {
                                 .collect(Collectors.toList());
         }
 
-        // ── Get Order by ID ───────────────────────────────────────────────
+        // ── Get Order by ID ──────
         @Transactional(readOnly = true)
         public OrderResponse getOrderById(String email, Long orderId) {
                 User user = userRepository.findByEmail(email)
@@ -145,7 +145,7 @@ public class OrderService {
                 return mapToResponse(orderRepository.save(order));
         }
 
-        // ── Map Entity to Response ────────────────────────────────────────────
+        // ── Map Entity to Response ───
         public OrderResponse mapToResponse(Order order) {
                 List<OrderItemResponse> itemResponses = order.getOrderItems()
                                 .stream()

@@ -23,7 +23,7 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    // ── Register ──────────────────────────────────────────────────────────
+    // ── Register ─────────────────
     public AuthResponse register(RegisterRequest request) {
 
         // 1. Check if email already exists
@@ -60,7 +60,7 @@ public class AuthService {
                 .build();
     }
 
-    // ── Login ─────────────────────────────────────────────────────────────
+    // ── Login ────────────────────
     public AuthResponse login(LoginRequest request) {
 
         // 1. Authenticate — throws exception if wrong credentials

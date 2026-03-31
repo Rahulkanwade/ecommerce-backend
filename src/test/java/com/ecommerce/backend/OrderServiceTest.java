@@ -98,7 +98,7 @@ class OrderServiceTest {
         orderRequest.setShippingAddress("123 Main St, Mumbai");
     }
 
-    // ── Create Order Tests ────────────────────────────────────────────────
+    // ── Create Order Tests ───────
 
     @Test
     void createOrder_Success() {
@@ -165,7 +165,7 @@ class OrderServiceTest {
                         "john@test.com", orderRequest));
     }
 
-    // ── Get Orders Tests ──────────────────────────────────────────────────
+    // ── Get Orders Tests ─────────
 
     @Test
     void getUserOrders_Success() {

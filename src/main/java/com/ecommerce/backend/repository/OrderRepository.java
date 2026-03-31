@@ -11,12 +11,12 @@ import java.util.Optional;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    // Get all orders for a specific user
+    
     List<Order> findByUserId(Long userId);
 
-    // Get orders by status
+    
     List<Order> findByStatus(OrderStatus status);
 
-    // Find order by stripe payment intent
+    
     Optional<Order> findByStripePaymentIntentId(String paymentIntentId);
 }

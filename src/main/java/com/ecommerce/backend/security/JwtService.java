@@ -23,17 +23,17 @@ public class JwtService {
     @Value("${app.jwt.expiration-ms}")
     private long jwtExpiration;
 
-    // ── Extract username (email) from token ──────────────────────────────
+    
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    // ── Generate token from UserDetails ──────────────────────────────────
+    
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    // ── Generate token with extra claims ─────────────────────────────────
+    
     public String generateToken(Map<String, Object> extraClaims,
                                 UserDetails userDetails) {
         return Jwts.builder()
@@ -45,14 +45,14 @@ public class JwtService {
                 .compact();
     }
 
-    // ── Validate token against UserDetails ───────────────────────────────
+    
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()))
                 && !isTokenExpired(token);
     }
 
-    // ── Internal helpers ──────────────────────────────────────────────────
+    
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }

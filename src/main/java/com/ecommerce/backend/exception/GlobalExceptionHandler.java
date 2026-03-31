@@ -19,7 +19,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // ── 404 — Resource Not Found ──────────────────────────────────────────
+    // ── 404 — Resource Not Found ─
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFound(
             ResourceNotFoundException ex,
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    // ── 400 — Insufficient Stock ──────────────────────────────────────────
+    // ── 400 — Insufficient Stock ─
     @ExceptionHandler(InsufficientStockException.class)
     public ResponseEntity<ErrorResponse> handleInsufficientStock(
             InsufficientStockException ex,
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    // ── 400 — Validation Errors ───────────────────────────────────────────
+    // ── 400 — Validation Errors ──
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(
             MethodArgumentNotValidException ex) {
@@ -74,7 +74,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 
-    // ── 401 — Bad Credentials ─────────────────────────────────────────────
+    // ── 401 — Bad Credentials ────
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ErrorResponse> handleBadCredentials(
             BadCredentialsException ex,
@@ -92,7 +92,7 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    // ── 403 — Access Denied ───────────────────────────────────────────────
+    // ── 403 — Access Denied ──────
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDenied(
             AccessDeniedException ex,
@@ -110,7 +110,7 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    // ── 400 — Illegal Argument ────────────────────────────────────────────
+    // ── 400 — Illegal Argument ───
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleIllegalArgument(
             IllegalArgumentException ex,
@@ -128,7 +128,7 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    // ── 400 — Runtime Exception ───────────────────────────────────────────
+    // ── 400 — Runtime Exception ──
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeException(
             RuntimeException ex,

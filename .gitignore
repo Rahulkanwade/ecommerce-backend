@@ -1,6 +1,6 @@
-# ──────────────────────────────────────────
+# ─
 # MAVEN
-# ──────────────────────────────────────────
+# ─
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -11,9 +11,9 @@ pom.xml.versionsBackup
 pom.xml.next
 release.properties
 
-# ──────────────────────────────────────────
+# ─
 # SPRING BOOT
-# ──────────────────────────────────────────
+# ─
 *.jar
 *.war
 *.ear
@@ -22,9 +22,9 @@ release.properties
 *.rar
 spring-shell.log
 
-# ──────────────────────────────────────────
+# ─
 # APPLICATION SECRETS (VERY IMPORTANT)
-# ──────────────────────────────────────────
+# ─
 application-prod.properties
 application-local.properties
 application-secret.properties
@@ -33,9 +33,9 @@ application-secret.properties
 src/main/resources/application.properties
 src/main/resources/application-local.properties
 src/main/resources/application-prod.properties
-# ──────────────────────────────────────────
+# ─
 # IDE - IntelliJ IDEA
-# ──────────────────────────────────────────
+# ─
 .idea/
 *.iws
 *.iml
@@ -43,9 +43,9 @@ src/main/resources/application-prod.properties
 out/
 .idea_modules/
 
-# ──────────────────────────────────────────
+# ─
 # IDE - VS Code
-# ──────────────────────────────────────────
+# ─
 .vscode/
 *.code-workspace
 .classpath
@@ -53,16 +53,16 @@ out/
 .settings/
 .factorypath
 
-# ──────────────────────────────────────────
+# ─
 # IDE - Eclipse
-# ──────────────────────────────────────────
+# ─
 *.class
 .apt_generated
 .sts4-cache/
 
-# ──────────────────────────────────────────
+# ─
 # JAVA
-# ──────────────────────────────────────────
+# ─
 *.class
 *.log
 *.ctxt
@@ -70,9 +70,9 @@ out/
 hs_err_pid*
 replay_pid*
 
-# ──────────────────────────────────────────
+# ─
 # OS FILES
-# ──────────────────────────────────────────
+# ─
 
 # Mac
 .DS_Store
@@ -94,15 +94,15 @@ $RECYCLE.BIN/
 .fuse_hidden*
 .directory
 
-# ──────────────────────────────────────────
+# ─
 # LOGS
-# ──────────────────────────────────────────
+# ─
 logs/
 *.log
 log/
 
-# ──────────────────────────────────────────
+# ─
 # DOCKER (if added later)
-# ──────────────────────────────────────────
+# ─
 .dockerignore
 docker-compose.override.yml

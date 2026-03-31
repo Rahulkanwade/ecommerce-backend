@@ -22,7 +22,7 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    // ── POST /api/orders (Create order from cart) ─────────────────────────
+    //POST /api/orders (Create order from cart)
     @PostMapping
     public ResponseEntity<OrderResponse> createOrder(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -33,7 +33,7 @@ public class OrderController {
                         userDetails.getUsername(), request));
     }
 
-    // ── GET /api/orders (Get user's orders) ───────────────────────────────
+    //  GET /api/orders (Get user's orders) 
     @GetMapping
     public ResponseEntity<List<OrderResponse>> getUserOrders(
             @AuthenticationPrincipal UserDetails userDetails) {
@@ -41,7 +41,7 @@ public class OrderController {
                 orderService.getUserOrders(userDetails.getUsername()));
     }
 
-    // ── GET /api/orders/{id} (Get specific order) ─────────────────────────
+    // GET /api/orders/{id} (Get specific order)
     @GetMapping("/{id}")
     public ResponseEntity<OrderResponse> getOrderById(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -50,14 +50,14 @@ public class OrderController {
                 orderService.getOrderById(userDetails.getUsername(), id));
     }
 
-    // ── GET /api/orders/admin/all (ADMIN - get all orders) ────────────────
+    // GET /api/orders/admin/all (ADMIN - get all orders)
     @GetMapping("/admin/all")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<OrderResponse>> getAllOrders() {
         return ResponseEntity.ok(orderService.getAllOrders());
     }
 
-    // ── PUT /api/orders/{id}/status (ADMIN - update status) ───────────────
+    //PUT /api/orders/{id}/status (ADMIN - update status) 
     @PutMapping("/{id}/status")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<OrderResponse> updateOrderStatus(

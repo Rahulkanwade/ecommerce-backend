@@ -31,7 +31,7 @@ public class ProductService {
         return mapToResponse(saved);
     }
 
-    // ── Get All Products ──────────────────────────────────────────────────
+    // ── Get All Products ─────────
     public List<ProductResponse> getAllProducts() {
         return productRepository.findAll()
                 .stream()
@@ -39,7 +39,7 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    // ── Get Product by ID ─────────────────────────────────────────────────
+    // ── Get Product by ID ────────
     public ProductResponse getProductById(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() ->
@@ -69,7 +69,7 @@ public class ProductService {
         productRepository.delete(product);
     }
 
-    // ── Search Products by Name ───────────────────────────────────────────
+    // ── Search Products by Name ──
     public List<ProductResponse> searchProducts(String name) {
         return productRepository.findByNameContainingIgnoreCase(name)
                 .stream()

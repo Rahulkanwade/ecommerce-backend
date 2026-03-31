@@ -22,7 +22,7 @@ public class PaymentService {
     private final APIContext apiContext;
     private final OrderRepository orderRepository;
 
-    // ── Create PayPal Payment ─────────────────────────────────────────────
+    // ── Create PayPal Payment ────
     @Transactional
     public PaymentResponse createPayment(
             String email,
@@ -137,7 +137,7 @@ public class PaymentService {
                 .build();
     }
 
-    // ── Cancel Payment ────────────────────────────────────────────────────
+    // ── Cancel Payment ───────────
     @Transactional
     public PaymentResponse cancelPayment(Long orderId) {
 

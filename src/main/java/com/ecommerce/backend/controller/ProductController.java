@@ -19,26 +19,26 @@ public class ProductController {
 
     private final ProductService productService;
 
-    // ── GET /api/products (Public) ────────────────────────────────────────
+    //  GET /api/products (Public)
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    // ── GET /api/products/{id} (Public) ───────────────────────────────────
+    //  GET /api/products/{id} (Public)
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    // ── GET /api/products/search?name=xxx (Public) ────────────────────────
+    //  GET /api/products/search?name=xxx (Public)
     @GetMapping("/search")
     public ResponseEntity<List<ProductResponse>> searchProducts(
             @RequestParam String name) {
         return ResponseEntity.ok(productService.searchProducts(name));
     }
 
-    // ── POST /api/products (ADMIN only) ───────────────────────────────────
+    //  POST /api/products (ADMIN only)
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProductResponse> createProduct(
@@ -48,7 +48,7 @@ public class ProductController {
                 .body(productService.createProduct(request));
     }
 
-    // ── PUT /api/products/{id} (ADMIN only) ───────────────────────────────
+    //  PUT /api/products/{id} (ADMIN only) 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ProductResponse> updateProduct(
@@ -57,7 +57,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProduct(id, request));
     }
 
-    // ── DELETE /api/products/{id} (ADMIN only) ────────────────────────────
+    // ── DELETE /api/products/{id} (ADMIN only)
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {

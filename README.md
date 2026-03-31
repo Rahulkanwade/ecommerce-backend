@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Backend
+# E-Commerce Backend
 
 A production-ready e-commerce REST API built with Spring Boot 4.x.
 

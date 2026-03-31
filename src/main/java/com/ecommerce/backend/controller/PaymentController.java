@@ -18,8 +18,7 @@ public class PaymentController {
 
     private final PaymentService paymentService;
 
-    // ── POST /api/payments/create ─────────────────────────────────────────
-    // Creates PayPal payment & returns approvalUrl
+    // ── POST /api/payments/create 
     @PostMapping("/create")
     public ResponseEntity<PaymentResponse> createPayment(
             @AuthenticationPrincipal UserDetails userDetails,
@@ -31,8 +30,8 @@ public class PaymentController {
                         userDetails.getUsername(), request));
     }
 
-    // ── GET /api/payments/success ─────────────────────────────────────────
-    // PayPal redirects here after user approves
+    // GET /api/payments/success 
+  
     @GetMapping("/success")
     public ResponseEntity<PaymentResponse> paymentSuccess(
             @RequestParam("paymentId") String paymentId,
@@ -44,8 +43,7 @@ public class PaymentController {
                 paymentService.executePayment(paymentId, payerId, orderId));
     }
 
-    // ── GET /api/payments/cancel ──────────────────────────────────────────
-    // PayPal redirects here if user cancels
+    // GET /api/payments/cancel 
     @GetMapping("/cancel")
     public ResponseEntity<PaymentResponse> paymentCancel(
             @RequestParam("orderId") Long orderId) {

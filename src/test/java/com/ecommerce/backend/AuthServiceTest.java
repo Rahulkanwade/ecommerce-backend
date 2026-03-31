@@ -68,7 +68,7 @@ class AuthServiceTest {
         loginRequest.setPassword("password123");
     }
 
-    // ── Register Tests ────────────────────────────────────────────────────
+    // ── Register Tests ───────────
 
     @Test
     void register_Success() {
@@ -102,7 +102,7 @@ class AuthServiceTest {
         verify(userRepository, never()).save(any());
     }
 
-    // ── Login Tests ───────────────────────────────────────────────────────
+    // ── Login Tests ──────────────
 
     @Test
     void login_Success() {
